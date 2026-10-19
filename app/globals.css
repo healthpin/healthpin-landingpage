@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Palette sampled from the official logo: raspberry/maroon + cream gold */
+  --color-brand: #9a1646;
+  --color-brand-dark: #6f0a33;
+  --color-mint: #f8eed6;
+  --color-canvas: #fbf7f0;
+  --color-ink: #2a1620;
+  --color-muted: #6b5f66;
+  --color-line: #ede3d6;
+  --color-accent: #f0dca8;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-manrope), var(--font-inter), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
