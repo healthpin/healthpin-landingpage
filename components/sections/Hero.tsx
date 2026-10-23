@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Lock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { SearchBar } from "@/components/hospitals/SearchBar";
 import { MapArt, MapPin } from "@/components/previews/MapArt";
 import { DoctorCard, HospitalCard, PrescriptionSheet, SampleBadge } from "@/components/previews/Cards";
 
@@ -70,7 +71,11 @@ export function Hero() {
             Discover hospitals near you, book appointments with doctors, and keep your prescriptions
             within reach — all in one secure place.
           </motion.p>
-          <motion.div {...rise(0.28)} className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <motion.div {...rise(0.24)} className="relative z-20 mt-8 max-w-xl">
+            <SearchBar />
+            <p className="mt-2.5 px-4 text-xs text-muted">Try a city, district, area or 6-digit pincode.</p>
+          </motion.div>
+          <motion.div {...rise(0.28)} className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button href="#find-care" arrow className="sm:min-w-44">
               Find a Doctor
             </Button>

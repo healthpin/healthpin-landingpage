@@ -49,3 +49,117 @@ h3 {
     scroll-behavior: auto;
   }
 }
+
+/* --- Hospital search results ------------------------------------------- */
+@keyframes hp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.hp-rise {
+  animation: hp-rise 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hp-map {
+  font-family: var(--font-sans);
+  z-index: 0;
+}
+
+.hp-map:focus-visible {
+  outline-offset: -3px;
+  border-radius: 1.5rem;
+}
+
+.hp-marker {
+  background: none;
+  border: 0;
+}
+
+/* Teardrop pin, drawn in CSS so no marker image has to be hosted. */
+.hp-pin {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 2px 2px 0;
+  border-radius: 50% 50% 50% 0;
+  background: var(--color-brand);
+  border: 2px solid #fff;
+  box-shadow: 0 4px 10px rgba(42, 22, 32, 0.35);
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hp-pin > span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.hp-pin.is-approx {
+  background: #b9708a;
+}
+
+.hp-pin.is-selected {
+  background: var(--color-brand-dark);
+  transform: rotate(-45deg) scale(1.3);
+  box-shadow: 0 0 0 5px rgba(154, 22, 70, 0.25), 0 6px 14px rgba(42, 22, 32, 0.45);
+}
+
+.hp-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--color-ink);
+}
+
+.hp-popup-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.hp-popup-meta {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.hp-popup-text {
+  margin: 6px 0 0 !important;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.hp-popup-note {
+  margin: 6px 0 0 !important;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.hp-popup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 10px;
+}
+
+.hp-popup-actions a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-brand);
+  text-decoration: none;
+}
+
+.hp-popup-actions a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-rise {
+    animation: none;
+  }
+}
