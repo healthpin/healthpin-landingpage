@@ -75,8 +75,8 @@ export function HospitalResults() {
   const showList = isDesktop || s.view === "list";
   const loading = resolving || active.loading;
   const tabs: { mode: Mode; label: string; count: number | null }[] = [
-    ...(place ? [{ mode: "nearby" as const, label: "Nearest first", count: nearby.loading ? null : nearby.total }] : []),
     { mode: "listed", label: `Listed in “${query}”`, count: listed.loading ? null : listed.total },
+    ...(place ? [{ mode: "nearby" as const, label: "Nearest first", count: nearby.loading ? null : nearby.total }] : []),
   ];
 
   let heading = `Hospitals near ${query}`;

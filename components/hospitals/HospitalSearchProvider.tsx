@@ -205,9 +205,8 @@ export function HospitalSearchProvider({ query, children }: { query: string; chi
     return { ...base, loading: place === null ? false : base.loading, loadingMore: loadingMore === "nearby" };
   }, [build, nearbyData, nearbyKey, place, loadingMore]);
 
-  const nearbyUsable = place != null && nearby.error === null && nearby.total > 0;
   const resolving = userMode === null && (place === undefined || (place !== null && nearby.loading));
-  const mode: Mode = userMode ?? (nearbyUsable ? "nearby" : "listed");
+  const mode: Mode = userMode ?? "listed";
   const active = mode === "nearby" ? nearby : listed;
 
   const select = useCallback((id: number | null, pan = false) => {
