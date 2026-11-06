@@ -1,7 +1,9 @@
 import type { ApiPage, FilterOptions, Filters, Place, Suggestion } from "./types";
 
-const BASE = (process.env.NEXT_PUBLIC_API_BASE_URL ?? "").replace(/\/+$/, "");
-const DIRECTORY = `${BASE}/api/v1/hospitals/public/directory/`;
+import { apiOrigin, apiUrl } from "@/lib/api/baseUrl";
+
+const BASE = apiOrigin();
+const DIRECTORY = apiUrl("/api/v1/hospitals/public/directory/");
 
 export const PAGE_SIZE = 20;
 export const RADII_KM = [5, 10, 25, 50] as const;
