@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 type ButtonProps = {
@@ -24,12 +25,9 @@ export function Button({
   className = "",
   onClick,
 }: ButtonProps) {
-  return (
-    <a
-      href={href}
-      onClick={onClick}
-      className={`group inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-[15px] font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 ${variants[variant]} ${className}`}
-    >
+  const classes = `group inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-[15px] font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 ${variants[variant]} ${className}`;
+  const content = (
+    <>
       {children}
       {arrow && (
         <ArrowRight
@@ -37,6 +35,19 @@ export function Button({
           className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
         />
       )}
+    </>
+  );
+  // Site pages use client-side routing; in-page anchors (#section) stay plain links.
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} onClick={onClick} className={classes}>
+        {content}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} onClick={onClick} className={classes}>
+      {content}
     </a>
   );
 }
