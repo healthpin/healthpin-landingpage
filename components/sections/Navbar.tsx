@@ -55,8 +55,8 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Button href="#find-care" className="hidden !min-h-11 !px-5 sm:inline-flex">
-            Get Started
+          <Button href="/register-your-hospital" className="hidden !min-h-11 !px-5 sm:inline-flex">
+            Register Your Hospital
           </Button>
           <button
             type="button"
@@ -99,8 +99,8 @@ export function Navbar() {
                 </motion.li>
               ))}
               <li className="pt-3">
-                <Button href="#find-care" arrow className="w-full" onClick={() => setOpen(false)}>
-                  Get Started
+                <Button href="/register-your-hospital" arrow className="w-full" onClick={() => setOpen(false)}>
+                  Register Your Hospital
                 </Button>
               </li>
             </ul>
